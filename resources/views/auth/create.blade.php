@@ -7,7 +7,7 @@
 
             <div class="mb-4">
                 <x-label for="email" :required="true">E-mail</x-label>
-                <x-text-input name="email" />
+                <x-text-input name="email" autofocus />
             </div>
             <div class="mb-4">
                 <x-label for="password" :required="true">Password</x-label>
@@ -27,7 +27,10 @@
                 </div>
             </div>
 
-            <x-button class="w-full bg-green-50">Login</x-button>
+            <x-button class="w-full bg-green-50 mb-4">Login</x-button>
+            <x-button type="button" class="w-full bg-slate-100" onclick="window.location='{{ url('/login/github') }}'">
+                {{ __('Login with Github') }}
+            </x-button>
         </form>
     </x-card>
 </x-layout>

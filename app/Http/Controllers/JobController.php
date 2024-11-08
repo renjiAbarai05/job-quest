@@ -13,6 +13,8 @@ class JobController extends Controller
      */
     public function index()
     {
+        // cache()->put('test-key', 'value12', 10);
+        // dd(cache()->get('test-key'));
         $this->authorize('viewAny', Job::class);
         $filters = request()->only([
             'search',

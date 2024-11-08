@@ -27,6 +27,9 @@ Route::resource('auth', Authcontroller::class)->only(['create', 'store']);
 Route::delete('logout', fn () => to_route('auth.destroy'))->name('logout');
 Route::delete('auth', [Authcontroller::class, 'destroy'])->name('auth.destroy');
 
+Route::get('login/{provider}', 'App\Http\Controllers\Authcontroller@redirectToProvider');
+Route::get('{provider}/callback', 'App\Http\Controllers\Authcontroller@handleProviderCallback');
+
 Route::middleware('auth')->group(function () {
     Route::resource('job.application', JobApplicationController::class)->only(['create', 'store']);
 
